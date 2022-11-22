@@ -25,6 +25,7 @@ public class test3case6 : MonoBehaviour
          moveDirecton = Vector3.zero;
       }
    }
+   
    public void FixedUpdate()
    {
       Vector3 movement = moveDirecton * Time.fixedDeltaTime * movespeed;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class test3case5 : MonoBehaviour
-{
+{ 
     Rigidbody2D rigidbody;
     float force = 300.0f;
     // Start is called before the first frame update
