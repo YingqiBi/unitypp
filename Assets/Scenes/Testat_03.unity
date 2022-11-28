@@ -297,6 +297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicAvatar
       objectReference: {fileID: 0}
+    - target: {fileID: 1591999172683195894, guid: b6f0ad0ac1a234fc0987a68a44577f9a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f0ad0ac1a234fc0987a68a44577f9a, type: 3}
@@ -356,6 +360,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5591158551626976535, guid: b75f16b2a46ea43bab1d3b631195d40a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b75f16b2a46ea43bab1d3b631195d40a, type: 3}
