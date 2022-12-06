@@ -23,12 +23,12 @@ public class move : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
-        {
-            canJump = false;
-        }
-        //if(Input.GetButtonDown("Jump")&& coll.IsTouchingLayers(ground))//如果按下跳跃键并且检测到了地面
-        else if(coll.IsTouchingLayers(ground)||cube.IsTouchingLayers(cubeb))
+        //if(Input.GetKey(KeyCode.Space))
+        //{
+            //canJump = false;
+        //}
+        if(Input.GetKey(KeyCode.Space) && coll.IsTouchingLayers(ground))//如果按下跳跃键并且检测到了地面
+        //else if(coll.IsTouchingLayers(ground)||cube.IsTouchingLayers(cubeb))
         {
             canJump = true;
         }
