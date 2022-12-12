@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class move : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class move : MonoBehaviour
     public LayerMask cubeb;
     public Collider2D coll;
     public Collider2D cube;
-    bool canJump = true;
+    bool canJump = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +32,18 @@ public class move : MonoBehaviour
         {
             canJump = true;
         }
+        if (Camera.main.transform.position.y - this.transform.position.y >= 6)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
     void FixedUpdate()
     {
         //if (float.Parse(string.Format("{0:F1}", transform.position.y)) > 1.0f) return;
         //rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);//Jump
         Move();
+
+      
     }
     void Move()
     {
@@ -52,6 +58,15 @@ public class move : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);//Jump
             canJump = false;
+        }
+
+        if (this.transform.position.x < -3)
+        {
+            this.transform.position = new Vector3(3, this.transform.position.y, this.transform.position.z);
+        }
+        if (this.transform.position.x > 3)
+        {
+            this.transform.position = new Vector3(-3, this.transform.position.y, this.transform.position.z);
         }
     }
 
