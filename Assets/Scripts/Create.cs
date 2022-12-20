@@ -9,6 +9,7 @@ public class Create : MonoBehaviour
     public GameObject Cube1;
     public float UpY;
     public float[] ThisX;
+    public move mov;
     void Start()
     {
         StartVec = this.transform.position;
@@ -22,6 +23,7 @@ public class Create : MonoBehaviour
     {
         if (this.transform.position.y > (StartVec + new Vector2(0, UpY)).y)
         {
+            mov.score++;
             GameObject gameObject1 = GameObject.Instantiate(Cube1);
             Cube1.transform.position = new Vector3(Random.Range(ThisX[0], ThisX[1]), this.transform.position.y + Random.Range(0, 2.0f), 0);
             StartVec = Cube1.transform.position;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class move : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class move : MonoBehaviour
     public Collider2D coll;
     public Collider2D cube;
     bool canJump = false;
-
+    public int score;
+    public Text text1;
+    public Text text2;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,16 +37,18 @@ public class move : MonoBehaviour
         }
         if (Camera.main.transform.position.y - this.transform.position.y >= 6)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameOver.SetActive(true);
         }
     }
+    public GameObject GameOver;
     void FixedUpdate()
     {
         //if (float.Parse(string.Format("{0:F1}", transform.position.y)) > 1.0f) return;
         //rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);//Jump
         Move();
 
-      
+        text1.text = score.ToString();
+        text2.text = score.ToString();
     }
     void Move()
     {
@@ -70,4 +75,8 @@ public class move : MonoBehaviour
         }
     }
 
+    public void LoadSc()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
