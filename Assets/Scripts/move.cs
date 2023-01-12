@@ -17,10 +17,18 @@ public class move : MonoBehaviour
     public int score;
     public Text text1;
     public Text text2;
-    // Start is called before the first frame update
+    public SpriteRenderer playerSprite;
+    private AudioSource audioSource;
+    public AudioClip audioClip;
+
+    private void Awake()
+    {
+        Screen.SetResolution(640, 960, false);
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -53,6 +61,15 @@ public class move : MonoBehaviour
     void Move()
     {
         float xm = Input.GetAxis("Horizontal");
+        if (xm<0)
+        {
+            playerSprite.flipX = false;
+        }
+        else if (xm>0)
+        {
+            playerSprite.flipX = true;
+
+        }
         rb.velocity = new Vector2(xm * m_speed * Time.deltaTime, rb.velocity.y);
         //if (Input.GetKey("W"))
         //{
@@ -62,6 +79,7 @@ public class move : MonoBehaviour
         if (canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);//Jump
+            audioSource.PlayOneShot(audioClip);
             canJump = false;
         }
 
